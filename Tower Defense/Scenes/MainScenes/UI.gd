@@ -1,7 +1,5 @@
 extends CanvasLayer
 
-var tower_range = 350
-
 func set_tower_preview(tower_type, mouse_position):
 	var drag_tower = load("res://Scenes/Turrets/" + tower_type + ".tscn").instance()
 	drag_tower.set_name("DragTower")
@@ -9,7 +7,7 @@ func set_tower_preview(tower_type, mouse_position):
 	
 	var range_texture = Sprite.new()
 	range_texture.position = Vector2(32,32)
-	var scaling = tower_range / 600.0
+	var scaling = GameData.tower_data[tower_type]["range"] / 600.0
 	range_texture.scale = Vector2(scaling, scaling)
 	var texture = load("res://Assets/UI/range_overlay.png")
 	range_texture.texture = texture
