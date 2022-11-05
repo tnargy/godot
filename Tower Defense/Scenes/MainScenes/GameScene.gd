@@ -29,6 +29,8 @@ func _unhandled_input(event):
 		
 	
 func initiate_build_mode(tower_type):
+	if build_mode:
+		cancel_build_mode()
 	build_type = tower_type + "T1"
 	build_mode = true
 	get_node("UI").set_tower_preview(build_type, get_global_mouse_position())
@@ -52,7 +54,7 @@ func update_tower_preview():
 func cancel_build_mode():
 	build_mode = false
 	build_valid = false
-	get_node("UI/TowerPreview").queue_free()
+	get_node("UI/TowerPreview").free()
 	
 func verify_and_build():
 	if build_valid:
