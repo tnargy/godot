@@ -19,12 +19,12 @@
         devShell = pkgs.mkShell {
           buildInputs = with pkgs; [
             godot
-            # tmux
-            # unzip
-            # ranger
-            # ueberzug
-            # imagemagick
-            # gimp
+            tmux
+            unzip
+            ranger
+            ueberzug
+            imagemagick
+            gimp
           ];
         };
       }
