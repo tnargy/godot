@@ -21,7 +21,7 @@
             godot
             imagemagick
             gimp
-	    krita
+            krita
           ];
         };
       }
