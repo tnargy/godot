@@ -15,3 +15,8 @@ func _physics_process(delta):
 	if Input.is_action_pressed("thrust"):
 		apply_force(Vector2.UP.rotated(rotation) * thrust_force)
 		
+
+
+func _on_body_entered(body):
+	print(name + " was hit by " + body.name)
+	queue_free()
