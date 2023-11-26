@@ -1,7 +1,7 @@
 extends RigidBody2D
 
 var rotation_speed = TAU
-var thrust_speed = 400
+var thrust_force = 400
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -9,16 +9,13 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _physics_process(delta):
+	angular_velocity = 0
+	
 	# Movement
 	if Input.is_action_pressed("rotate_cw"):
-		rotate(rotation_speed  * delta)
+		angular_velocity = rotation_speed
 	if Input.is_action_pressed("rotate_ccw"):
-		rotate(-1 * rotation_speed  * delta)
+		angular_velocity = -1 * rotation_speed
 	if Input.is_action_pressed("thrust"):
-		translate(Vector2.UP.rotated(rotation) * thrust_speed * delta )
-		
-	# Fire
-	if Input.is_action_pressed("fire"):
-		pass
-	pass
+		apply_force(Vector2.UP.rotated(rotation) * thrust_force)
