@@ -15,7 +15,7 @@ radius = 41.1096
 [node name="Player" type="RigidBody2D" parent="."]
 position = Vector2(591, 296)
 script = ExtResource("2_h4bel")
-metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
 shape = SubResource("CircleShape2D_ptr5w")
@@ -24,7 +24,7 @@ shape = SubResource("CircleShape2D_ptr5w")
 texture = ExtResource("1_p5ust")
 
 [node name="Astroid-Big" type="RigidBody2D" parent="."]
-position = Vector2(332, 196)
+position = Vector2(364, 204)
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Astroid-Big"]
