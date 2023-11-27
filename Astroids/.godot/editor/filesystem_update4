@@ -1,4 +1,7 @@
 res://main.tscn
+res://player.tscn
+res://astroid_big.tscn
+res://main.gd
 res://Astroid.gd
+res://Utility.gd
 res://Player.gd
-res://RidgidBody2DWrap.gd

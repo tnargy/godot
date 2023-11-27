@@ -1,8 +1,10 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1701030406
+::res://::1701056404
+Astroid.gd::GDScript::-1::1701056387::0::1::::<>RigidBody2DWrap<>::
 icon.svg::CompressedTexture2D::8007885143409136625::1700971375::1700971406::1::::<><>::
-main.tscn::PackedScene::1154755435298349744::1700973320::0::1::::<><>::uid://680nhed0d2r7::::res://Graphics/playerShip1_blue.png<>res://Player.gd<>uid://cdpt38ls6frbu::::res://Graphics/meteorBrown_big1.png
-Player.gd::GDScript::-1::1700973005::0::1::::<>RigidBody2D<>::
+main.tscn::PackedScene::1154755435298349744::1701056387::0::1::::<><>::uid://680nhed0d2r7::::res://Graphics/playerShip1_blue.png<>res://Player.gd<>res://Astroid.gd<>uid://cdpt38ls6frbu::::res://Graphics/meteorBrown_big1.png
+Player.gd::GDScript::-1::1701056387::0::1::::<>RigidBody2DWrap<>::
+RidgidBody2DWrap.gd::GDScript::-1::1701056387::0::1::::RigidBody2DWrap<>RigidBody2D<>::
 ::res://Graphics/::1700971406
 black.png::CompressedTexture2D::8651442464248598843::1700971375::1700971406::1::::<><>::
 laserRed01.png::CompressedTexture2D::3814592346720250357::1700971375::1700971406::1::::<><>::

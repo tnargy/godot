@@ -1,41 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://qpmwhhukrgya"]
+[gd_scene load_steps=2 format=3 uid="uid://qpmwhhukrgya"]
 
-[ext_resource type="Texture2D" uid="uid://680nhed0d2r7" path="res://Graphics/playerShip1_blue.png" id="1_p5ust"]
-[ext_resource type="Script" path="res://Player.gd" id="2_h4bel"]
-[ext_resource type="Script" path="res://Astroid.gd" id="3_fvk3i"]
-[ext_resource type="Texture2D" uid="uid://cdpt38ls6frbu" path="res://Graphics/meteorBrown_big1.png" id="3_xas5k"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_ptr5w"]
-radius = 36.0
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_xy07p"]
-radius = 41.1096
+[ext_resource type="Script" path="res://main.gd" id="1_c0xkq"]
 
 [node name="Main" type="Node"]
-
-[node name="Player" type="RigidBody2D" parent="."]
-position = Vector2(591, 296)
-max_contacts_reported = 99
-contact_monitor = true
-script = ExtResource("2_h4bel")
-metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
-shape = SubResource("CircleShape2D_ptr5w")
-
-[node name="Sprite2D" type="Sprite2D" parent="Player"]
-texture = ExtResource("1_p5ust")
-
-[node name="Astroid-Big" type="RigidBody2D" parent="."]
-position = Vector2(364, 204)
-mass = 100.0
-script = ExtResource("3_fvk3i")
-metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Astroid-Big"]
-shape = SubResource("CircleShape2D_xy07p")
-
-[node name="Sprite2D" type="Sprite2D" parent="Astroid-Big"]
-texture = ExtResource("3_xas5k")
-
-[connection signal="body_entered" from="Player" to="Player" method="_on_body_entered"]
+script = ExtResource("1_c0xkq")
