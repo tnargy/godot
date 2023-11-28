@@ -6,6 +6,11 @@ signal invuln_ended
 var rotation_speed = TAU
 var thrust_force = 400
 
+var fire_cooldown = 0.25
+var fire_cooldown_remaining = 0
+
+const bullet_scene = preload("res://bullet.tscn")
+
 func _ready():
 	$InvulnAnimation.current_animation = "blink"
 	
@@ -16,7 +21,7 @@ func _process(_delta):
 		invuln_ended.emit()
 	
 	
-func _physics_process(_delta):
+func _physics_process(delta):
 	angular_velocity = 0
 	
 	# Movement
@@ -27,15 +32,24 @@ func _physics_process(_delta):
 	if Input.is_action_pressed("thrust"):
 		apply_force(Vector2.UP.rotated(rotation) * thrust_force)
 		
+	fire_cooldown_remaining -= delta
+	if fire_cooldown_remaining <= 0 and Input.is_action_just_pressed("fire"):
+		fire_cooldown_remaining = fire_cooldown
+		do_shoot_bullet()
+		
+
+func do_shoot_bullet():
+	var b = bullet_scene.instantiate()
+	b.rotation = self.rotation
+	b.position = $Fire.global_position
+	get_parent().add_child(b)
 
 
 func _on_body_entered(body):
-	print(name + " was hit by " + body.name)
 	has_died.emit()
 
 
 func _on_invuln_ended():
-	print("Vulnerable")
 	$InvulnAnimation.stop()
 	contact_monitor = true
 	$Sprite2D.visible = true

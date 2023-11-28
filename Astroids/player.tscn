@@ -28,6 +28,7 @@ _data = {
 }
 
 [node name="Player" type="RigidBody2D"]
+collision_layer = 2
 max_contacts_reported = 99
 script = ExtResource("1_1wx16")
 metadata/_edit_group_ = true
@@ -38,6 +39,9 @@ texture = ExtResource("2_ju44s")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_ptr5w")
+
+[node name="Fire" type="Node2D" parent="."]
+position = Vector2(0, -19)
 
 [node name="InvulnAnimation" type="AnimationPlayer" parent="."]
 libraries = {
