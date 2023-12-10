@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://bwpnblm5c4vxw"]
+
+[ext_resource type="Script" path="res://Astroid.gd" id="1_n73i3"]
+[ext_resource type="Texture2D" uid="uid://co4bkn81y2h0c" path="res://Graphics/meteorGrey_med1.png" id="2_kl1k5"]
+[ext_resource type="PackedScene" uid="uid://bojl3awcmf2g0" path="res://astroid_small.tscn" id="2_si74q"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xy07p"]
+radius = 32.0
+
+[node name="Astroid" type="RigidBody2D"]
+mass = 100.0
+script = ExtResource("1_n73i3")
+debris_scene = ExtResource("2_si74q")
+debris_amount = 3
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("2_kl1k5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_xy07p")
+
+[connection signal="was_shot" from="." to="." method="_on_was_shot"]

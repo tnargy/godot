@@ -16,10 +16,10 @@ tracks/0/path = NodePath("Sprite2D:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2, 2.5, 3),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [true, false, true, false, true, false, true]
+"values": [true, false, true, false, true, false, true, false, true, false, true]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_yd2fc"]
@@ -30,6 +30,7 @@ _data = {
 [node name="Player" type="RigidBody2D"]
 collision_layer = 2
 max_contacts_reported = 99
+contact_monitor = true
 script = ExtResource("1_1wx16")
 metadata/_edit_group_ = true
 
@@ -49,5 +50,4 @@ libraries = {
 }
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
-[connection signal="invuln_ended" from="." to="." method="_on_invuln_ended"]
 [connection signal="animation_finished" from="InvulnAnimation" to="." method="_on_invuln_animation_animation_finished"]

@@ -1,0 +1,95 @@
+[gd_scene load_steps=2 format=3 uid="uid://3521h3awr3j5"]
+
+[ext_resource type="Script" path="res://main_ui.gd" id="1_spw2h"]
+
+[node name="MainUI" type="Control" node_paths=PackedStringArray("score_label", "level_label", "lives_label", "game_over_panel")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_spw2h")
+score_label = NodePath("Score")
+level_label = NodePath("Level")
+lives_label = NodePath("Lives")
+game_over_panel = NodePath("GameOver")
+
+[node name="Score" type="Label" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Score: 0000"
+
+[node name="Level" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -33.5
+offset_right = 33.5
+offset_bottom = 26.0
+grow_horizontal = 2
+text = "Level: 00"
+
+[node name="Lives" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -57.0
+offset_bottom = 26.0
+grow_horizontal = 0
+text = "Lives: 0"
+
+[node name="GameOver" type="Panel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -100.0
+offset_right = 150.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="GameOver"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "GAME OVER"
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="GameOver"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 43.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_right = 50
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GameOver/MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Restart" type="Button" parent="GameOver/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+text = "Restart"
+
+[node name="Exit" type="Button" parent="GameOver/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+text = "Exit"
+
+[connection signal="pressed" from="GameOver/MarginContainer/VBoxContainer/Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="GameOver/MarginContainer/VBoxContainer/Exit" to="." method="_on_exit_pressed"]
