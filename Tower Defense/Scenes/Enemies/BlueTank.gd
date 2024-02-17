@@ -8,19 +8,19 @@ var hp = 50
 var base_damage = 21
 
 
-onready var health_bar = get_node("HealthBar")
-onready var impact_area = get_node("Impact")
+@onready var health_bar = get_node("HealthBar")
+@onready var impact_area = get_node("Impact")
 var gun_impact = preload("res://Scenes/SupportScenes/GunImpact.tscn")
 
 
 func _ready():
 	health_bar.max_value = hp
 	health_bar.value = hp
-	health_bar.set_as_toplevel(true)
+	health_bar.set_as_top_level(true)
 
 
 func _physics_process(delta):
-	if unit_offset == 1.0:
+	if progress_ratio == 1.0:
 		emit_signal("base_damage", base_damage)
 		queue_free()
 	move(delta)
@@ -44,13 +44,13 @@ func impact():
 	randomize()
 	var y_pos = randi() % 31
 	var impact_location = Vector2(x_pos, y_pos)
-	var new_impact = gun_impact.instance()
+	var new_impact = gun_impact.instantiate()
 	new_impact.position = impact_location
 	impact_area.add_child(new_impact)
 
 
 func on_destroy():
-	get_node("KinematicBody2D").queue_free()
-	yield(get_tree().create_timer(0.2), "timeout")
+	get_node("CharacterBody2D").queue_free()
+	await get_tree().create_timer(0.2).timeout
 	self.queue_free()
 	

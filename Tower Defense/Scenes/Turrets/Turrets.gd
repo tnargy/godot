@@ -45,7 +45,7 @@ func fire():
 	elif category == "Missle":
 		fire_missle()
 	enemy.on_hit(GameData.tower_data[type]["damage"])
-	yield(get_tree().create_timer(GameData.tower_data[type]["rof"]), "timeout")
+	await get_tree().create_timer(GameData.tower_data[type]["rof"]).timeout
 	ready = true
 
 
