@@ -20,7 +20,6 @@ public partial class Player : CharacterBody3D
         Velocity *= 5;
 
         MoveAndSlide();
-
         Flip();
     }
 
