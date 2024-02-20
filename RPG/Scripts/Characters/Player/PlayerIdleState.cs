@@ -21,6 +21,8 @@ public partial class PlayerIdleState : PlayerState
 
     protected override void EnterState()
     {
+        base.EnterState();
+        
         characterNode.animPlayerNode.Play(GameConstants.ANIM_IDLE);
     }
 }
