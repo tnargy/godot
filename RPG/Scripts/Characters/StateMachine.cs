@@ -23,8 +23,13 @@ public partial class StateMachine : Node
             }
         }
 
+        // Not a valid state
         if (newState == null) { return; }
 
+        // Disable Current State
+        currentState.Notification(5002);
+
+        // Set and enable Current State
         currentState = newState;
         currentState.Notification(5001);
     }
