@@ -20,12 +20,12 @@ public partial class PlayerDashState : PlayerState
 
     protected override void EnterState()
     {
-        characterNode.animPlayerNode.Play(GameConstants.ANIM_DASH);
+        characterNode.AnimPlayerNode.Play(GameConstants.ANIM_DASH);
         characterNode.Velocity = new(characterNode.direction.X, 0, characterNode.direction.Y);
         
         if (characterNode.Velocity == Vector3.Zero)
         {
-            characterNode.Velocity = characterNode.sprite3DNode.FlipH ?
+            characterNode.Velocity = characterNode.Sprite3DNode.FlipH ?
                 Vector3.Left :
                 Vector3.Right;
         }
@@ -37,6 +37,6 @@ public partial class PlayerDashState : PlayerState
     private void HandleDashTimeout()
     {
         characterNode.Velocity = Vector3.Zero;
-        characterNode.stateMachineNode.SwitchState<PlayerIdleState>();
+        characterNode.StateMachineNode.SwitchState<PlayerIdleState>();
     }
 }
