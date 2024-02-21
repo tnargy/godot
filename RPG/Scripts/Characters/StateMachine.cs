@@ -8,7 +8,7 @@ public partial class StateMachine : Node
 
     public override void _Ready()
     {
-        currentState.Notification(5001);
+        currentState.Notification(GameConstants.NOTIFICATION_ENTER_STATE);
     }
 
     public void SwitchState<T>()
@@ -27,10 +27,10 @@ public partial class StateMachine : Node
         if (newState == null) { return; }
 
         // Disable Current State
-        currentState.Notification(5002);
+        currentState.Notification(GameConstants.NOTIFICATION_EXIT_STATE);
 
         // Set and enable Current State
         currentState = newState;
-        currentState.Notification(5001);
+        currentState.Notification(GameConstants.NOTIFICATION_ENTER_STATE);
     }
 }
