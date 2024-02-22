@@ -1,6 +1,6 @@
 [gd_scene load_steps=110 format=3 uid="uid://dphbdblxllfql"]
 
-[ext_resource type="Script" path="res://Scripts/Characters/Enemy/Enemy/Enemy.cs" id="1_comtj"]
+[ext_resource type="Script" path="res://Scripts/Characters/Enemy/Enemy.cs" id="1_1ctmk"]
 [ext_resource type="Texture2D" uid="uid://bve7veubk4u44" path="res://Assets/Sprites/Characters/Enemy Knight/Death/smoke-Fx3_17.png" id="1_e8xne"]
 [ext_resource type="Texture2D" uid="uid://lc5dbypex20m" path="res://Assets/Sprites/Characters/Enemy Knight/Idle/0_Demons_of_Darkness_Idle_000.png" id="1_klnyv"]
 [ext_resource type="Texture2D" uid="uid://btjps1m4xxyou" path="res://Assets/Sprites/Characters/Enemy Knight/Move/0_Demons_of_Darkness_Walking_000.png" id="1_ousat"]
@@ -208,8 +208,11 @@ _data = {
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ygpr0"]
 
-[node name="Enemy" type="CharacterBody3D"]
-script = ExtResource("1_comtj")
+[node name="Enemy" type="CharacterBody3D" node_paths=PackedStringArray("AnimPlayerNode", "Sprite3DNode", "StateMachineNode")]
+script = ExtResource("1_1ctmk")
+AnimPlayerNode = NodePath("AnimationPlayer")
+Sprite3DNode = NodePath("Sprite3D")
+StateMachineNode = NodePath("StateMachine")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
 pixel_size = 0.0025
@@ -224,7 +227,9 @@ libraries = {
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.234459, 0)
 shape = SubResource("CapsuleShape3D_ygpr0")
 
-[node name="StateMachine" parent="." instance=ExtResource("100_2dnlp")]
+[node name="StateMachine" parent="." node_paths=PackedStringArray("currentState", "states") instance=ExtResource("100_2dnlp")]
+currentState = NodePath("IdleState")
+states = [NodePath("IdleState")]
 
 [node name="IdleState" type="Node" parent="StateMachine"]
 script = ExtResource("101_vic0x")
