@@ -37,7 +37,6 @@
 [ext_resource type="Texture2D" uid="uid://dejeqcrw4n0wl" path="res://Assets/Sprites/Characters/Player/Sliding/Sliding_001.png" id="33_lq06e"]
 [ext_resource type="Script" path="res://Scripts/Characters/Player/PlayerMoveState.cs" id="33_qc7hh"]
 [ext_resource type="Texture2D" uid="uid://dyswm686mwmlf" path="res://Assets/Sprites/Characters/Player/Sliding/Sliding_002.png" id="34_77bf1"]
-[ext_resource type="Script" path="res://Scripts/Characters/StateMachine.cs" id="34_vj65v"]
 [ext_resource type="Texture2D" uid="uid://ccsqmatk83os3" path="res://Assets/Sprites/Characters/Player/Sliding/Sliding_003.png" id="35_a1xn7"]
 [ext_resource type="Texture2D" uid="uid://c1dscscchynum" path="res://Assets/Sprites/Characters/Player/Sliding/Sliding_004.png" id="36_em0tl"]
 [ext_resource type="Texture2D" uid="uid://c7vbcm2xmgqfj" path="res://Assets/Sprites/Characters/Player/Sliding/Sliding_005.png" id="37_ogahf"]
@@ -80,6 +79,7 @@
 [ext_resource type="Texture2D" uid="uid://b7t1rx3eayswn" path="res://Assets/Sprites/Characters/Player/Slashing/Slashing_009.png" id="74_blgt1"]
 [ext_resource type="Texture2D" uid="uid://vl3v2cleukpk" path="res://Assets/Sprites/Characters/Player/Slashing/Slashing_010.png" id="75_34jh7"]
 [ext_resource type="Texture2D" uid="uid://n8ljjo1u0gtk" path="res://Assets/Sprites/Characters/Player/Slashing/Slashing_011.png" id="76_5e2c0"]
+[ext_resource type="PackedScene" uid="uid://dkdu8ow8215g2" path="res://Scenes/Characters/state_machine.tscn" id="77_d4pok"]
 
 [sub_resource type="Animation" id="Animation_2t8h4"]
 resource_name = "Attack"
@@ -210,8 +210,7 @@ libraries = {
 "": SubResource("AnimationLibrary_emfl0")
 }
 
-[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("currentState", "states")]
-script = ExtResource("34_vj65v")
+[node name="StateMachine" parent="." node_paths=PackedStringArray("currentState", "states") instance=ExtResource("77_d4pok")]
 currentState = NodePath("IdleState")
 states = [NodePath("IdleState"), NodePath("MoveState"), NodePath("DashState")]
 
