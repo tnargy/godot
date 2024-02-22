@@ -1,8 +1,6 @@
 ﻿using Godot;
 using System;
 
-namespace RPG;
-
 public abstract partial class Character : CharacterBody3D
 {
     [ExportGroup("Required Nodes")]
