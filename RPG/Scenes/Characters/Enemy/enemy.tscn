@@ -1,5 +1,6 @@
-[gd_scene load_steps=107 format=3 uid="uid://dphbdblxllfql"]
+[gd_scene load_steps=110 format=3 uid="uid://dphbdblxllfql"]
 
+[ext_resource type="Script" path="res://Scripts/Characters/Enemy/Enemy/Enemy.cs" id="1_comtj"]
 [ext_resource type="Texture2D" uid="uid://bve7veubk4u44" path="res://Assets/Sprites/Characters/Enemy Knight/Death/smoke-Fx3_17.png" id="1_e8xne"]
 [ext_resource type="Texture2D" uid="uid://lc5dbypex20m" path="res://Assets/Sprites/Characters/Enemy Knight/Idle/0_Demons_of_Darkness_Idle_000.png" id="1_klnyv"]
 [ext_resource type="Texture2D" uid="uid://btjps1m4xxyou" path="res://Assets/Sprites/Characters/Enemy Knight/Move/0_Demons_of_Darkness_Walking_000.png" id="1_ousat"]
@@ -99,6 +100,8 @@
 [ext_resource type="Texture2D" uid="uid://c3mdm6med23bp" path="res://Assets/Sprites/Characters/Enemy Knight/TakeHit/0_Demons_of_Darkness_Hurt_009.png" id="79_8a42f"]
 [ext_resource type="Texture2D" uid="uid://byasw0twtin0p" path="res://Assets/Sprites/Characters/Enemy Knight/TakeHit/0_Demons_of_Darkness_Hurt_010.png" id="80_jblbc"]
 [ext_resource type="Texture2D" uid="uid://dnf57lq772s2w" path="res://Assets/Sprites/Characters/Enemy Knight/TakeHit/0_Demons_of_Darkness_Hurt_011.png" id="81_7qi1t"]
+[ext_resource type="PackedScene" uid="uid://dkdu8ow8215g2" path="res://Scenes/Characters/state_machine.tscn" id="100_2dnlp"]
+[ext_resource type="Script" path="res://Scripts/Characters/Enemy/EnemyIdleState.cs" id="101_vic0x"]
 
 [sub_resource type="Animation" id="Animation_4bpot"]
 resource_name = "Attack"
@@ -206,6 +209,7 @@ _data = {
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ygpr0"]
 
 [node name="Enemy" type="CharacterBody3D"]
+script = ExtResource("1_comtj")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
 pixel_size = 0.0025
@@ -219,3 +223,8 @@ libraries = {
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.234459, 0)
 shape = SubResource("CapsuleShape3D_ygpr0")
+
+[node name="StateMachine" parent="." instance=ExtResource("100_2dnlp")]
+
+[node name="IdleState" type="Node" parent="StateMachine"]
+script = ExtResource("101_vic0x")
