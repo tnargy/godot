@@ -16,7 +16,7 @@ dest_files=["res://.godot/imported/Kicking_008.png-3b2a5e334cebabae5c4191faa0f58
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

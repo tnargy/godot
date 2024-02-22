@@ -81,6 +81,22 @@
 [ext_resource type="Texture2D" uid="uid://vl3v2cleukpk" path="res://Assets/Sprites/Characters/Player/Slashing/Slashing_010.png" id="75_34jh7"]
 [ext_resource type="Texture2D" uid="uid://n8ljjo1u0gtk" path="res://Assets/Sprites/Characters/Player/Slashing/Slashing_011.png" id="76_5e2c0"]
 
+[sub_resource type="Animation" id="Animation_2t8h4"]
+resource_name = "Attack"
+step = 0.0833333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite3D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0833333, 0.166667, 0.25, 0.333333, 0.416667, 0.5, 0.583333, 0.666667, 0.75, 0.833333, 0.916667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("65_s6vlk"), ExtResource("66_ofukp"), ExtResource("67_hi428"), ExtResource("68_u6214"), ExtResource("69_ln1h7"), ExtResource("70_mdmpj"), ExtResource("71_cql7d"), ExtResource("72_vhn2j"), ExtResource("73_mp2n2"), ExtResource("74_blgt1"), ExtResource("75_34jh7"), ExtResource("76_5e2c0")]
+}
+
 [sub_resource type="Animation" id="Animation_kge2w"]
 resource_name = "Dash"
 step = 0.166667
@@ -95,6 +111,22 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [ExtResource("32_bcyu1"), ExtResource("33_lq06e"), ExtResource("34_77bf1"), ExtResource("35_a1xn7"), ExtResource("36_em0tl"), ExtResource("37_ogahf")]
+}
+
+[sub_resource type="Animation" id="Animation_4jj7q"]
+resource_name = "Death"
+step = 0.0666667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite3D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0666667, 0.133333, 0.2, 0.266667, 0.333333, 0.4, 0.466667, 0.533333, 0.6, 0.666667, 0.733333, 0.8, 0.866667, 0.933333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("2_230pf"), ExtResource("39_mfucs"), ExtResource("40_mn8cd"), ExtResource("41_fqv60"), ExtResource("42_vo2fq"), ExtResource("43_djai4"), ExtResource("44_7jjaj"), ExtResource("45_arkar"), ExtResource("46_y0fsh"), ExtResource("47_4o55c"), ExtResource("48_eh0ux"), ExtResource("49_aq136"), ExtResource("50_llhwg"), ExtResource("51_tvfk7"), ExtResource("52_kunbv")]
 }
 
 [sub_resource type="Animation" id="Animation_ny1we"]
@@ -114,39 +146,6 @@ tracks/0/keys = {
 "values": [ExtResource("2_1pa6i"), ExtResource("4_xmqdp"), ExtResource("5_cmy7g"), ExtResource("6_3ngv5"), ExtResource("7_o3rxi"), ExtResource("8_26p5p"), ExtResource("9_ohqmx"), ExtResource("10_m5geo"), ExtResource("11_ea584"), ExtResource("12_i5vxc"), ExtResource("13_8v5st"), ExtResource("14_su7su"), ExtResource("15_fl5o0"), ExtResource("16_7ahnn"), ExtResource("17_v5avw"), ExtResource("18_nyqij"), ExtResource("19_6i126"), ExtResource("20_hlrdd")]
 }
 
-[sub_resource type="Animation" id="Animation_10imm"]
-resource_name = "Move"
-loop_mode = 1
-step = 0.0833333
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite3D:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.0833333, 0.166667, 0.25, 0.333333, 0.416667, 0.5, 0.583333, 0.666667, 0.75, 0.833333, 0.916667),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [ExtResource("2_j2gvu"), ExtResource("21_jcdwl"), ExtResource("22_s4aak"), ExtResource("23_18svb"), ExtResource("24_i0dbj"), ExtResource("25_o7lw4"), ExtResource("26_djpvm"), ExtResource("27_37oi1"), ExtResource("28_ghppw"), ExtResource("29_0l6v8"), ExtResource("30_kw28c"), ExtResource("31_j75p6")]
-}
-
-[sub_resource type="Animation" id="Animation_4jj7q"]
-resource_name = "Death"
-step = 0.0666667
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite3D:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.0666667, 0.133333, 0.2, 0.266667, 0.333333, 0.4, 0.466667, 0.533333, 0.6, 0.666667, 0.733333, 0.8, 0.866667, 0.933333),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [ExtResource("2_230pf"), ExtResource("39_mfucs"), ExtResource("40_mn8cd"), ExtResource("41_fqv60"), ExtResource("42_vo2fq"), ExtResource("43_djai4"), ExtResource("44_7jjaj"), ExtResource("45_arkar"), ExtResource("46_y0fsh"), ExtResource("47_4o55c"), ExtResource("48_eh0ux"), ExtResource("49_aq136"), ExtResource("50_llhwg"), ExtResource("51_tvfk7"), ExtResource("52_kunbv")]
-}
-
 [sub_resource type="Animation" id="Animation_5s5ao"]
 resource_name = "Kick"
 step = 0.0833333
@@ -163,8 +162,9 @@ tracks/0/keys = {
 "values": [ExtResource("53_4mwb4"), ExtResource("54_qp02q"), ExtResource("55_n05vb"), ExtResource("56_7oevs"), ExtResource("57_lumvy"), ExtResource("58_pyw07"), ExtResource("59_27s8b"), ExtResource("60_3u8x2"), ExtResource("61_v8hp5"), ExtResource("62_cmaa6"), ExtResource("63_bvyx0"), ExtResource("64_h8lmv")]
 }
 
-[sub_resource type="Animation" id="Animation_2t8h4"]
-resource_name = "Attack"
+[sub_resource type="Animation" id="Animation_10imm"]
+resource_name = "Move"
+loop_mode = 1
 step = 0.0833333
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -176,7 +176,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.0833333, 0.166667, 0.25, 0.333333, 0.416667, 0.5, 0.583333, 0.666667, 0.75, 0.833333, 0.916667),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [ExtResource("65_s6vlk"), ExtResource("66_ofukp"), ExtResource("67_hi428"), ExtResource("68_u6214"), ExtResource("69_ln1h7"), ExtResource("70_mdmpj"), ExtResource("71_cql7d"), ExtResource("72_vhn2j"), ExtResource("73_mp2n2"), ExtResource("74_blgt1"), ExtResource("75_34jh7"), ExtResource("76_5e2c0")]
+"values": [ExtResource("2_j2gvu"), ExtResource("21_jcdwl"), ExtResource("22_s4aak"), ExtResource("23_18svb"), ExtResource("24_i0dbj"), ExtResource("25_o7lw4"), ExtResource("26_djpvm"), ExtResource("27_37oi1"), ExtResource("28_ghppw"), ExtResource("29_0l6v8"), ExtResource("30_kw28c"), ExtResource("31_j75p6")]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_emfl0"]

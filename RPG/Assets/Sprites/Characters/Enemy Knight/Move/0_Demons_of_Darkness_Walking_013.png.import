@@ -3,20 +3,19 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ddvgu2w5wq6uf"
-path.s3tc="res://.godot/imported/0_Demons_of_Darkness_Walking_013.png-b8a3722e694abecf09196fefdaa00cee.s3tc.ctex"
+path="res://.godot/imported/0_Demons_of_Darkness_Walking_013.png-b8a3722e694abecf09196fefdaa00cee.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://Assets/Sprites/Characters/Enemy Knight/Move/0_Demons_of_Darkness_Walking_013.png"
-dest_files=["res://.godot/imported/0_Demons_of_Darkness_Walking_013.png-b8a3722e694abecf09196fefdaa00cee.s3tc.ctex"]
+dest_files=["res://.godot/imported/0_Demons_of_Darkness_Walking_013.png-b8a3722e694abecf09196fefdaa00cee.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

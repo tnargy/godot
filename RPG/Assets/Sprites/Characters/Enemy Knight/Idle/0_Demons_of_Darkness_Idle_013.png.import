@@ -3,20 +3,19 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://d01muii776aws"
-path.s3tc="res://.godot/imported/0_Demons_of_Darkness_Idle_013.png-9401d142641128e7b680798fcb8eb52d.s3tc.ctex"
+path="res://.godot/imported/0_Demons_of_Darkness_Idle_013.png-9401d142641128e7b680798fcb8eb52d.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://Assets/Sprites/Characters/Enemy Knight/Idle/0_Demons_of_Darkness_Idle_013.png"
-dest_files=["res://.godot/imported/0_Demons_of_Darkness_Idle_013.png-9401d142641128e7b680798fcb8eb52d.s3tc.ctex"]
+dest_files=["res://.godot/imported/0_Demons_of_Darkness_Idle_013.png-9401d142641128e7b680798fcb8eb52d.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
