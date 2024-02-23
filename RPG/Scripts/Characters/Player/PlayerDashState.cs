@@ -34,12 +34,6 @@ public partial class PlayerDashState : PlayerState
         dashTimerNode.Start();
     }
 
-    protected override void ExitState()
-    {
-        base.ExitState();
-        dashTimerNode.Timeout -= HandleDashTimeout;
-    }
-
     private void HandleDashTimeout()
     {
         characterNode.Velocity = Vector3.Zero;

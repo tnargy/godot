@@ -17,4 +17,8 @@ public abstract partial class EnemyState : CharacterState
         Vector3 globalPos = characterNode.PathNode.GlobalPosition;
         return localPos + globalPos;
     }
+
+    protected void HandleChaseAreaBodyEntered(Node3D body) {
+        characterNode.StateMachineNode.SwitchState<EnemyChaseState>();
+    }
 }

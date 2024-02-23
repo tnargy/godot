@@ -21,7 +21,6 @@ public partial class EnemyPatrolState : EnemyState
 
     protected override void EnterState()
     {
-        base.EnterState();
         characterNode.AnimPlayerNode.Play(GameConstants.ANIM_MOVE);
 
         GetPointGlobalPosition(pointIndex);
@@ -29,13 +28,14 @@ public partial class EnemyPatrolState : EnemyState
 
         characterNode.AgentNode.NavigationFinished += HandleNavigationFinished;
         idleTimerNode.Timeout += HandleTimeout;
+        characterNode.ChaseAreaNode.BodyEntered += HandleChaseAreaBodyEntered;
     }
 
     protected override void ExitState()
     {
-        base.ExitState();
         characterNode.AgentNode.NavigationFinished -= HandleNavigationFinished;
         idleTimerNode.Timeout -= HandleTimeout;
+        characterNode.ChaseAreaNode.BodyEntered -= HandleChaseAreaBodyEntered;
     }
 
     private void HandleNavigationFinished()

@@ -20,9 +20,7 @@ public partial class PlayerIdleState : PlayerState
     }
 
     protected override void EnterState()
-    {
-        base.EnterState();
-        
+    {       
         characterNode.AnimPlayerNode.Play(GameConstants.ANIM_IDLE);
     }
 }
