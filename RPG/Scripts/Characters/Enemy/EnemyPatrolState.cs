@@ -15,7 +15,7 @@ public partial class EnemyPatrolState : EnemyState
         {
             return;
         }
-        
+
         Move();
     }
 
@@ -29,6 +29,13 @@ public partial class EnemyPatrolState : EnemyState
 
         characterNode.AgentNode.NavigationFinished += HandleNavigationFinished;
         idleTimerNode.Timeout += HandleTimeout;
+    }
+
+    protected override void ExitState()
+    {
+        base.ExitState();
+        characterNode.AgentNode.NavigationFinished -= HandleNavigationFinished;
+        idleTimerNode.Timeout -= HandleTimeout;
     }
 
     private void HandleNavigationFinished()
