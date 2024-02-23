@@ -203,7 +203,7 @@ StateMachineNode = NodePath("StateMachine")
 [node name="Sprite3D" type="Sprite3D" parent="."]
 pixel_size = 0.0025
 texture_filter = 0
-texture = ExtResource("59_27s8b")
+texture = ExtResource("2_1pa6i")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
