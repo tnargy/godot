@@ -240,8 +240,12 @@ script = ExtResource("101_vic0x")
 [node name="ReturnState" type="Node" parent="StateMachine"]
 script = ExtResource("103_10ebr")
 
-[node name="PatrolState" type="Node" parent="StateMachine"]
+[node name="PatrolState" type="Node" parent="StateMachine" node_paths=PackedStringArray("idleTimerNode")]
 script = ExtResource("104_nqeet")
+idleTimerNode = NodePath("Timer")
+
+[node name="Timer" type="Timer" parent="StateMachine/PatrolState"]
+one_shot = true
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 debug_enabled = true
