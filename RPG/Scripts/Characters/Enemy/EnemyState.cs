@@ -9,6 +9,7 @@ public abstract partial class EnemyState : CharacterState
         characterNode.AgentNode.GetNextPathPosition();
         characterNode.Velocity = characterNode.GlobalPosition.DirectionTo(destination);
         characterNode.MoveAndSlide();
+        characterNode.Flip();
     }
 
     protected Vector3 GetPointGlobalPosition(int index)
@@ -18,7 +19,8 @@ public abstract partial class EnemyState : CharacterState
         return localPos + globalPos;
     }
 
-    protected void HandleChaseAreaBodyEntered(Node3D body) {
+    protected void HandleChaseAreaBodyEntered(Node3D body) 
+    {
         characterNode.StateMachineNode.SwitchState<EnemyChaseState>();
     }
 }
