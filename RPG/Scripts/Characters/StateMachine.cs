@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Linq;
 
 public partial class StateMachine : Node
 {
@@ -13,18 +14,12 @@ public partial class StateMachine : Node
 
     public void SwitchState<T>()
     {
-        Node newState = null;
+        Node newState = states.Where(
+            (state) => state is T)
+            .FirstOrDefault();
 
-        foreach (Node state in states)
-        {
-            if (state is T)
-            {
-                newState = state;
-            }
-        }
-
-        // Not a valid state
-        if (newState == null) { return; }
+        // Not a valid state or repeating transition
+        if (newState == null || currentState is T) { return; }
 
         // Disable Current State
         currentState.Notification(GameConstants.NOTIFICATION_EXIT_STATE);
