@@ -2,6 +2,7 @@ using Godot;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Mime;
 
 public partial class UIController : Control
 {
@@ -16,5 +17,14 @@ public partial class UIController : Control
         );
 
         containers[ContainerType.Start].Visible = true;
+        containers[ContainerType.Start].ButtonNode.Pressed += HandleStartPressed;
     }
+
+    private void HandleStartPressed()
+    {
+        GetTree().Paused = false;
+        containers[ContainerType.Start].Visible = false;
+        GameEvents.RaiseStartGame();
+    }
+
 }

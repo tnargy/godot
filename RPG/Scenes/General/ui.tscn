@@ -14,6 +14,7 @@ expand_margin_right = 48.0
 expand_margin_bottom = 16.0
 
 [node name="UI" type="Control"]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -22,7 +23,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_23q2y")
 
-[node name="Start" type="VBoxContainer" parent="."]
+[node name="Start" type="VBoxContainer" parent="." node_paths=PackedStringArray("ButtonNode")]
 visible = false
 layout_mode = 1
 anchors_preset = 8
@@ -37,6 +38,7 @@ offset_bottom = 109.5
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("2_mdrb7")
+ButtonNode = NodePath("Button")
 
 [node name="TextureRect" type="TextureRect" parent="Start"]
 layout_mode = 2
