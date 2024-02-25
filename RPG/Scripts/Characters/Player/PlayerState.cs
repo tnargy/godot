@@ -3,6 +3,12 @@ using System;
 
 public abstract partial class PlayerState: CharacterState
 {
+    public override void _Ready()
+    {
+        base._Ready();
+        characterNode.GetStatResource(Stat.Health).OnZero += HandleZeroHealth;
+    }
+
     protected void CheckForAttackInput()
     {
         if (Input.IsActionJustPressed(GameConstants.INPUT_ATTACK))
@@ -18,5 +24,10 @@ public abstract partial class PlayerState: CharacterState
         {
             characterNode.StateMachineNode.SwitchState<PlayerDashState>();
         }
+    }
+
+    private void HandleZeroHealth()
+    {
+        characterNode.StateMachineNode.SwitchState<PlayerDeathState>();
     }
 }

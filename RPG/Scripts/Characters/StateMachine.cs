@@ -18,8 +18,8 @@ public partial class StateMachine : Node
             (state) => state is T)
             .FirstOrDefault();
 
-        // Not a valid state
-        if (newState == null) { return; }
+        // Not a valid state or repeating transition
+        if (newState == null || currentState is T) { return; }
 
         // Disable Current State
         currentState.Notification(GameConstants.NOTIFICATION_EXIT_STATE);

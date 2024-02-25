@@ -11,6 +11,8 @@ public abstract partial class Character : CharacterBody3D
     [Export] public Sprite3D Sprite3DNode { get; private set; }
     [Export] public StateMachine StateMachineNode { get; private set; }
     [Export] public Area3D HurtBoxNode { get; private set; }
+    [Export] public Area3D HitBoxNode { get; private set; }
+    [Export] public CollisionShape3D HitBoxShapeNode { get; private set; }
 
     [ExportGroup("AI Nodes")]
     [Export] public Path3D PathNode { get; private set; }
@@ -39,7 +41,10 @@ public abstract partial class Character : CharacterBody3D
     {
         StatResource health = GetStatResource(Stat.Health);
 
-        GD.Print(health.StatValue);
+        Character player = area.GetOwner<Character>();
+        health.StatValue -= player.GetStatResource(Stat.Strength)
+            .StatValue;
+        GD.Print(Name + ": " + health.StatValue);
     }
 
     public StatResource GetStatResource(Stat stat)
@@ -47,5 +52,10 @@ public abstract partial class Character : CharacterBody3D
         return stats.Where(
             (element) => element.StatType == stat)
             .FirstOrDefault();
+    }
+
+    public void ToggleHitBox(bool flag)
+    {
+        HitBoxShapeNode.Disabled = !flag;
     }
 }
