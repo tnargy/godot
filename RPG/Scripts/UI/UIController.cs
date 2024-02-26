@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Mime;
+using System.Reflection.Metadata;
 
 public partial class UIController : Control
 {
@@ -32,6 +33,11 @@ public partial class UIController : Control
         // Start Game
         if (containers[ContainerType.Start].Visible && Input.IsActionJustPressed(GameConstants.INPUT_ATTACK)) {
             HandleStartPressed();
+        }
+
+        // Reward Screen
+        if (containers[ContainerType.Reward].Visible && Input.IsActionJustPressed(GameConstants.INPUT_ATTACK)) {
+            HandleRewardPressed();
         }
 
         // Pause Game
