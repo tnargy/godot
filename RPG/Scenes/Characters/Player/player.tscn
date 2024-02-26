@@ -1,10 +1,11 @@
-[gd_scene load_steps=95 format=3 uid="uid://bqx21ffc2t2ts"]
+[gd_scene load_steps=94 format=3 uid="uid://bqx21ffc2t2ts"]
 
 [ext_resource type="Script" path="res://Scripts/Characters/Player/Player.cs" id="1_ltnfx"]
 [ext_resource type="Texture2D" uid="uid://bl7skkdpaqgne" path="res://Assets/Sprites/Characters/Player/Idle Blinking/Idle Blinking_000.png" id="2_1pa6i"]
 [ext_resource type="Texture2D" uid="uid://352xepcoco63" path="res://Assets/Sprites/Characters/Player/Dying/Dying_000.png" id="2_230pf"]
-[ext_resource type="Script" path="res://Scripts/Resources/StatResource.cs" id="2_bgpmy"]
+[ext_resource type="Resource" uid="uid://btnv7n1f84gvk" path="res://Resources/player_health_stat.tres" id="2_io7ps"]
 [ext_resource type="Texture2D" uid="uid://dlyya108wqs1u" path="res://Assets/Sprites/Characters/Player/Running/Running_000.png" id="2_j2gvu"]
+[ext_resource type="Resource" uid="uid://b4hbs8ag4ypvk" path="res://Resources/player_strength_stat.tres" id="3_dttye"]
 [ext_resource type="Texture2D" uid="uid://dinioq0wu7ntp" path="res://Assets/Sprites/Characters/Player/Idle Blinking/Idle Blinking_001.png" id="4_xmqdp"]
 [ext_resource type="Texture2D" uid="uid://cwalbc1yt20ok" path="res://Assets/Sprites/Characters/Player/Idle Blinking/Idle Blinking_002.png" id="5_cmy7g"]
 [ext_resource type="Texture2D" uid="uid://b1npk3gk61hsf" path="res://Assets/Sprites/Characters/Player/Idle Blinking/Idle Blinking_003.png" id="6_3ngv5"]
@@ -83,16 +84,6 @@
 [ext_resource type="PackedScene" uid="uid://dkdu8ow8215g2" path="res://Scenes/Characters/state_machine.tscn" id="77_d4pok"]
 [ext_resource type="Script" path="res://Scripts/Characters/Player/PlayerAttackState.cs" id="81_f4tc4"]
 [ext_resource type="Script" path="res://Scripts/Characters/Player/PlayerDeathState.cs" id="83_mfmws"]
-
-[sub_resource type="Resource" id="Resource_636lu"]
-script = ExtResource("2_bgpmy")
-StatType = 0
-StatValue = 100.0
-
-[sub_resource type="Resource" id="Resource_05d71"]
-script = ExtResource("2_bgpmy")
-StatType = 1
-StatValue = 3.0
 
 [sub_resource type="Animation" id="Animation_5s5ao"]
 resource_name = "Attack1"
@@ -241,7 +232,7 @@ collision_mask = 5
 floor_max_angle = 1.55334
 floor_snap_length = 0.3
 script = ExtResource("1_ltnfx")
-stats = Array[Object]([SubResource("Resource_636lu"), SubResource("Resource_05d71")])
+stats = Array[Object]([ExtResource("2_io7ps"), ExtResource("3_dttye")])
 AnimPlayerNode = NodePath("AnimationPlayer")
 Sprite3DNode = NodePath("Sprite3D")
 StateMachineNode = NodePath("StateMachine")
