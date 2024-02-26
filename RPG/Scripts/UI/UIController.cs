@@ -42,5 +42,6 @@ public partial class UIController : Control
     {
         containers[ContainerType.Stats].Visible = false;
         containers[ContainerType.Victory].Visible = true;
+        GetTree().Paused = true;
     }
 }
