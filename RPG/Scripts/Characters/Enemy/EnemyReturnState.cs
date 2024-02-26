@@ -6,7 +6,7 @@ public partial class EnemyReturnState : EnemyState
     public override void _Ready()
     {
         base._Ready();
-        GetPointGlobalPosition(0);
+        destination = GetPointGlobalPosition(0);
     }
 
     public override void _PhysicsProcess(double delta)

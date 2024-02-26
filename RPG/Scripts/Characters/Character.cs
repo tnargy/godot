@@ -44,7 +44,7 @@ public abstract partial class Character : CharacterBody3D
         Character player = area.GetOwner<Character>();
         health.StatValue -= player.GetStatResource(Stat.Strength)
             .StatValue;
-        GD.Print(Name + ": " + health.StatValue);
+        // GD.Print(Name + ": " + health.StatValue);
     }
 
     public StatResource GetStatResource(Stat stat)

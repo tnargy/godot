@@ -23,7 +23,7 @@ public partial class EnemyPatrolState : EnemyState
     {
         characterNode.AnimPlayerNode.Play(GameConstants.ANIM_MOVE);
 
-        GetPointGlobalPosition(pointIndex);
+        destination = GetPointGlobalPosition(pointIndex);
         characterNode.AgentNode.TargetPosition = destination;
 
         characterNode.AgentNode.NavigationFinished += HandleNavigationFinished;
