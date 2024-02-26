@@ -27,6 +27,10 @@ public partial class UIController : Control
 
     public override void _Input(InputEvent @event)
     {
+        if (containers[ContainerType.Start].Visible && Input.IsActionJustPressed(GameConstants.INPUT_ATTACK)) {
+            HandleStartPressed();
+        }
+
         if (!canPause) { return; }
 
         if (!Input.IsActionJustPressed(GameConstants.INPUT_PAUSE))
