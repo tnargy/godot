@@ -20,19 +20,22 @@ public partial class UIController : Control
         containers[ContainerType.Start].Visible = true;
         containers[ContainerType.Start].ButtonNode.Pressed += HandleStartPressed;
         containers[ContainerType.Pause].ButtonNode.Pressed += HandlePausePressed;
+        containers[ContainerType.Reward].ButtonNode.Pressed += HandleRewardPressed;
         
         GameEvents.OnEndGame += HandleEndGame;
         GameEvents.OnVictory += HandleVictory;
+        GameEvents.OnReward += HandleReward;
     }
 
     public override void _Input(InputEvent @event)
     {
+        // Start Game
         if (containers[ContainerType.Start].Visible && Input.IsActionJustPressed(GameConstants.INPUT_ATTACK)) {
             HandleStartPressed();
         }
 
+        // Pause Game
         if (!canPause) { return; }
-
         if (!Input.IsActionJustPressed(GameConstants.INPUT_PAUSE))
         {
             return;
@@ -72,6 +75,26 @@ public partial class UIController : Control
         GetTree().Paused = false;
 
         containers[ContainerType.Pause].Visible = false;
+        containers[ContainerType.Stats].Visible = true;
+    }
+
+    private void HandleReward(RewardResource resource)
+    {
+        canPause = false;
+        GetTree().Paused = true;
+        containers[ContainerType.Stats].Visible = false;
+        containers[ContainerType.Reward].Visible = true;
+
+        containers[ContainerType.Reward].TextureNode.Texture = resource.SpriteTexture;
+        containers[ContainerType.Reward].LabelNode.Text = resource.Description;
+    }
+
+    private void HandleRewardPressed()
+    {
+        canPause = true;
+        GetTree().Paused = false;
+
+        containers[ContainerType.Reward].Visible = false;
         containers[ContainerType.Stats].Visible = true;
     }
 }
