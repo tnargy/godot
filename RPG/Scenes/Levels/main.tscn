@@ -240,7 +240,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.311509, 1.11004, -2.37263)
 curve = SubResource("Curve3D_im3pw")
 
 [node name="Enemy" parent="Enemies/Path3D" node_paths=PackedStringArray("PathNode") instance=ExtResource("4_1jd3h")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.311509, -1.11004, 3.12798)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.311509, -1.11004, 5.12798)
 stats = Array[Object]([SubResource("Resource_q4oxk"), SubResource("Resource_gsv4d")])
 PathNode = NodePath("..")
 
