@@ -1,4 +1,4 @@
-[gd_scene load_steps=122 format=3 uid="uid://dphbdblxllfql"]
+[gd_scene load_steps=123 format=3 uid="uid://dphbdblxllfql"]
 
 [ext_resource type="Script" path="res://Scripts/Characters/Enemy/Enemy.cs" id="1_1ctmk"]
 [ext_resource type="Texture2D" uid="uid://bve7veubk4u44" path="res://Assets/Sprites/Characters/Enemy Knight/Death/smoke-Fx3_17.png" id="1_e8xne"]
@@ -108,6 +108,7 @@
 [ext_resource type="Script" path="res://Scripts/Characters/Enemy/EnemyChaseState.cs" id="105_mjdo0"]
 [ext_resource type="Script" path="res://Scripts/Characters/Enemy/EnemyAttackState.cs" id="106_l4lfc"]
 [ext_resource type="Script" path="res://Scripts/Characters/Enemy/EnemyDeathState.cs" id="108_q0ia6"]
+[ext_resource type="Script" path="res://Scripts/Characters/AttackHitbox.cs" id="109_7ffyx"]
 
 [sub_resource type="Resource" id="Resource_14vqs"]
 script = ExtResource("2_1eyvm")
@@ -351,6 +352,7 @@ shape = SubResource("CapsuleShape3D_ygpr0")
 [node name="Hitbox" type="Area3D" parent="."]
 collision_layer = 4
 collision_mask = 0
+script = ExtResource("109_7ffyx")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Hitbox"]
 shape = SubResource("BoxShape3D_62rj6")
