@@ -1,0 +1,50 @@
+[gd_scene load_steps=7 format=3 uid="uid://by2w4jdorhh0a"]
+
+[ext_resource type="PackedScene" uid="uid://baijdx3nfpxrf" path="res://Assets/Models/Dungeon/gltf/candle.gltf.glb" id="1_ryf48"]
+
+[sub_resource type="Gradient" id="Gradient_81lh4"]
+colors = PackedColorArray(0.921569, 0.258824, 0.262745, 1, 0.662745, 0.439216, 0.184314, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_snc74"]
+gradient = SubResource("Gradient_81lh4")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_espvp"]
+lifetime_randomness = 1.0
+emission_shape = 3
+emission_box_extents = Vector3(0.05, 0.05, 0.05)
+direction = Vector3(0, 1, 0)
+spread = 25.0
+initial_velocity_min = 0.5
+initial_velocity_max = 1.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.3
+scale_max = 0.5
+color_ramp = SubResource("GradientTexture1D_snc74")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xculj"]
+transparency = 1
+blend_mode = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_color = Color(1, 1, 1, 0.588235)
+
+[sub_resource type="SphereMesh" id="SphereMesh_bhvc4"]
+material = SubResource("StandardMaterial3D_xculj")
+radius = 0.1
+height = 0.2
+
+[node name="Candle" type="Node3D"]
+
+[node name="candle_gltf" parent="." instance=ExtResource("1_ryf48")]
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00254792, 0.854373, 0.000364155)
+light_color = Color(0.85098, 0.486275, 0.262745, 1)
+light_energy = 2.0
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+process_mode = 3
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.889081, -0.00726953)
+amount = 60
+process_material = SubResource("ParticleProcessMaterial_espvp")
+draw_pass_1 = SubResource("SphereMesh_bhvc4")
