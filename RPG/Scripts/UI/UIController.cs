@@ -47,6 +47,7 @@ public partial class UIController : Control
             return;
         }
         containers[ContainerType.Stats].Visible = GetTree().Paused;
+        containers[ContainerType.Minimap].Visible = GetTree().Paused;
         GetTree().Paused = !GetTree().Paused;
         containers[ContainerType.Pause].Visible = GetTree().Paused;
     }
@@ -57,6 +58,7 @@ public partial class UIController : Control
         GetTree().Paused = false;
         containers[ContainerType.Start].Visible = false;
         containers[ContainerType.Stats].Visible = true;
+        containers[ContainerType.Minimap].Visible = true;
         
         GameEvents.RaiseStartGame();
     }
@@ -65,6 +67,7 @@ public partial class UIController : Control
     {
         canPause = false;
         containers[ContainerType.Stats].Visible = false;
+        containers[ContainerType.Minimap].Visible = false;
         containers[ContainerType.Defeat].Visible = true;
     }
 
@@ -72,6 +75,7 @@ public partial class UIController : Control
     {
         canPause = false;
         containers[ContainerType.Stats].Visible = false;
+        containers[ContainerType.Minimap].Visible = false;
         containers[ContainerType.Victory].Visible = true;
         GetTree().Paused = true;
     }
@@ -82,6 +86,7 @@ public partial class UIController : Control
 
         containers[ContainerType.Pause].Visible = false;
         containers[ContainerType.Stats].Visible = true;
+        containers[ContainerType.Minimap].Visible = true;
     }
 
     private void HandleReward(RewardResource resource)
@@ -89,6 +94,7 @@ public partial class UIController : Control
         canPause = false;
         GetTree().Paused = true;
         containers[ContainerType.Stats].Visible = false;
+        containers[ContainerType.Minimap].Visible = false;
         containers[ContainerType.Reward].Visible = true;
 
         containers[ContainerType.Reward].TextureNode.Texture = resource.SpriteTexture;
@@ -102,5 +108,6 @@ public partial class UIController : Control
 
         containers[ContainerType.Reward].Visible = false;
         containers[ContainerType.Stats].Visible = true;
+        containers[ContainerType.Minimap].Visible = true;
     }
 }

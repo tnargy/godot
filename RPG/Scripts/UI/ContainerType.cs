@@ -5,5 +5,6 @@ public enum ContainerType
     Victory,
     Defeat,
     Stats,
-    Reward
+    Reward,
+    Minimap
 }

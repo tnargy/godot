@@ -1,4 +1,4 @@
-[gd_scene load_steps=62 format=3 uid="uid://dr7bj8bvav4tr"]
+[gd_scene load_steps=65 format=3 uid="uid://dr7bj8bvav4tr"]
 
 [ext_resource type="Script" path="res://Scripts/Levels/Main.cs" id="1_r3nvg"]
 [ext_resource type="PackedScene" uid="uid://bqx21ffc2t2ts" path="res://Scenes/Characters/Player/player.tscn" id="2_0vd1b"]
@@ -35,6 +35,9 @@
 [ext_resource type="PackedScene" uid="uid://copv62bttjjw4" path="res://Assets/Models/Dungeon/gltf/banner_triple_red.gltf.glb" id="25_y71kl"]
 [ext_resource type="PackedScene" uid="uid://b3td3l0no7hqv" path="res://Scenes/General/torch.tscn" id="26_cwtis"]
 [ext_resource type="PackedScene" uid="uid://by2w4jdorhh0a" path="res://Scenes/General/candle.tscn" id="27_bsss0"]
+[ext_resource type="Script" path="res://Scripts/UI/UIContainer.cs" id="29_p6hf3"]
+[ext_resource type="Texture2D" uid="uid://cf3r3ln68uqbc" path="res://Assets/Icon.png" id="36_f5hkj"]
+[ext_resource type="Script" path="res://Scripts/General/MiniMap.cs" id="37_if6xn"]
 
 [sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_erplx"]
 rayleigh_color = Color(0.470588, 0.00392157, 0.976471, 1)
@@ -193,6 +196,44 @@ environment = SubResource("Environment_kp4lh")
 transform = Transform3D(-0.753494, 0.52806, -0.391664, -0.652912, -0.531105, 0.540031, 0.0771539, 0.662632, 0.744961, -1.94758, 6.70948, 4.78921)
 light_energy = 0.3
 shadow_enabled = true
+
+[node name="Camera3D" type="Camera3D" parent="." node_paths=PackedStringArray("target")]
+transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 2.01474, 6.74516, -20.4933)
+current = true
+script = ExtResource("6_7jt3y")
+target = NodePath("../Player")
+positionFromTarget = Vector3(0, 2, 6)
+
+[node name="UI" parent="." instance=ExtResource("5_8n7ja")]
+
+[node name="Minimap" type="SubViewportContainer" parent="UI"]
+visible = false
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -232.0
+offset_top = 32.0
+offset_right = -32.0
+offset_bottom = 232.0
+grow_horizontal = 0
+script = ExtResource("29_p6hf3")
+container = 6
+
+[node name="SubViewport" type="SubViewport" parent="UI/Minimap"]
+handle_input_locally = false
+size = Vector2i(200, 200)
+render_target_update_mode = 0
+
+[node name="Sprite3D" type="Sprite3D" parent="UI/Minimap/SubViewport" node_paths=PackedStringArray("target")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.015, 15, -25.051)
+axis = 1
+texture = ExtResource("36_f5hkj")
+script = ExtResource("37_if6xn")
+target = NodePath("../../../../Player")
+
+[node name="Camera3D" type="Camera3D" parent="UI/Minimap/SubViewport/Sprite3D"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 10.9863, 1.90735e-06)
 
 [node name="Player" parent="." instance=ExtResource("2_0vd1b")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.42897, 1.76213, 0)
@@ -550,8 +591,6 @@ transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 32.0759, 2.2, 5.06629)
 [node name="Candle17" parent="Environment/WallItems" instance=ExtResource("27_bsss0")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 34.5794, 2.2, 5.06629)
 
-[node name="UI" parent="." instance=ExtResource("5_8n7ja")]
-
 [node name="Enemies" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.77373, 1.79527, -0.531201)
 script = ExtResource("4_6e3pg")
@@ -645,12 +684,6 @@ curve = SubResource("Curve3D_s0yk1")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.07462, 0)
 stats = Array[Object]([SubResource("Resource_m2bis"), SubResource("Resource_gsv4d")])
 PathNode = NodePath("..")
-
-[node name="Camera3D" type="Camera3D" parent="." node_paths=PackedStringArray("target")]
-transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 2.01474, 6.74516, -20.4933)
-script = ExtResource("6_7jt3y")
-target = NodePath("../Player")
-positionFromTarget = Vector3(0, 2, 6)
 
 [node name="TreasureChest" parent="." instance=ExtResource("9_40d5s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.1309, 5.57734, -35.5938)

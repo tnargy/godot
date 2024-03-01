@@ -4,13 +4,14 @@ using System;
 public partial class TreasureChest : StaticBody3D
 {
     [Export] private Area3D areaNode;
-    [Export] private Sprite3D spriteNode;
+    [Export] private AnimatedSprite3D spriteNode;
+    [Export] private Sprite3D iconNode;
     [Export] private RewardResource reward;
 
     public override void _Ready()
     {
-        areaNode.BodyEntered += (body) => spriteNode.Visible = true;
-        areaNode.BodyExited += (body) => spriteNode.Visible = false;
+        areaNode.BodyEntered += (body) => iconNode.Visible = true;
+        areaNode.BodyExited += (body) => iconNode.Visible = false;
     }
 
     public override void _Input(InputEvent @event)
@@ -25,6 +26,7 @@ public partial class TreasureChest : StaticBody3D
         }
         
         areaNode.Monitoring = false;
+        spriteNode.Play("open");
         GameEvents.RaiseReward(reward);
     }
 }
