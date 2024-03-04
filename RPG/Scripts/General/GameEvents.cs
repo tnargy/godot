@@ -8,6 +8,7 @@ public class GameEvents
     public static event Action OnVictory;
     public static event Action<RewardResource> OnReward;
     public static event Action OnNextLevel;
+    public static event Action OnRestartLevel;
 
     public static void RaiseStartGame() => OnStartGame?.Invoke();
     public static void RaiseEndGame() => OnEndGame?.Invoke();
@@ -17,4 +18,5 @@ public class GameEvents
     public static void RaiseReward(RewardResource reward) 
         => OnReward?.Invoke(reward);
     public static void RaiseNextLevel() => OnNextLevel?.Invoke();
+    public static void RaiseRestartLevel() => OnRestartLevel?.Invoke();
 }

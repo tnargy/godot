@@ -12,7 +12,14 @@ public partial class Main : Node3D
         GetTree().Paused = true;
         LoadLevel();
         GameEvents.OnNextLevel += HandleNextLevel;
+        GameEvents.OnRestartLevel += HandleRestart;
     }
+
+    private void HandleRestart()
+    {
+        GetTree().Quit();
+    }
+
 
     private void HandleNextLevel()
     {

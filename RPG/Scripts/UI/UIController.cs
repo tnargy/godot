@@ -23,6 +23,7 @@ public partial class UIController : Control
         containers[ContainerType.Pause].ButtonNode.Pressed += HandlePausePressed;
         containers[ContainerType.Reward].ButtonNode.Pressed += HandleRewardPressed;
         containers[ContainerType.Victory].ButtonNode.Pressed += HandleVictoryPressed;
+        containers[ContainerType.Defeat].ButtonNode.Pressed += HandleDefeatPressed;
         
         GameEvents.OnEndGame += HandleEndGame;
         GameEvents.OnVictory += HandleVictory;
@@ -122,5 +123,17 @@ public partial class UIController : Control
         containers[ContainerType.Minimap].Visible = true;
 
         GameEvents.RaiseNextLevel();
+    }
+    
+    private void HandleDefeatPressed()
+    {
+        canPause = true;
+        GetTree().Paused = false;
+
+        containers[ContainerType.Reward].Visible = false;
+        containers[ContainerType.Stats].Visible = true;
+        containers[ContainerType.Minimap].Visible = true;
+
+        GameEvents.RaiseRestartLevel();
     }
 }
